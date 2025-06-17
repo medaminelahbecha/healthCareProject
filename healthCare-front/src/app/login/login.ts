@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms'; // Added ReactiveFormsModule
+import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormBuilder, AbstractControl } from '@angular/forms'; // Added ReactiveFormsModule
 import { CommonModule } from '@angular/common'; // Import CommonModule for *ngIf
 
 @Component({
@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
   submitted = false;
 
   constructor(private fb: FormBuilder) {
-     this.loginForm = this.fb.group({
-    emailOrUsername: ['', Validators.required],
-    password: ['', Validators.required]
-  });
+    this.loginForm = this.fb.group({
+      emailOrUsername: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   // Getter for easy access to form controls in the template
-  get f() {
+  get f(): { [key: string]: AbstractControl } {
     return this.loginForm.controls;
   }
 

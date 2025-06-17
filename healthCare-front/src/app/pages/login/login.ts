@@ -8,7 +8,7 @@ import { HeaderComponent } from '../../shared/header/header'; // Import HeaderCo
   templateUrl: './login.html',
   styleUrls: ['./login.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HeaderComponent] // Add HeaderComponent to imports
+  imports: [CommonModule, ReactiveFormsModule] // Add HeaderComponent to imports
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;

@@ -1,16 +1,3 @@
-<header>
-  <nav>
-    <div class="logo">CareConnect</div>
-    <ul>
-      <li><a href="#">Find a Doctor</a></li>
-      <li><a href="#">Find a Clinic</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    <button class="signup-button">Sign Up</button>
-  </nav>
-</header>
-
 <main class="login-container">
   <section class="login-form-section">
     <h2>Welcome back</h2>
@@ -18,8 +5,8 @@
       <div class="form-group">
         <label for="emailOrUsername">Email or Username</label>
         <input type="text" id="emailOrUsername" formControlName="emailOrUsername" placeholder="Enter your email or username">
-        <div *ngIf="submitted && f['emailOrUsername'].errors" class="error-message">
-          <div *ngIf="f['emailOrUsername'].errors['required']">Email or Username is required.</div>
+        <div *ngIf="submitted && loginForm.controls?.emailOrUsername?.errors" class="error-message">
+          <div *ngIf="loginForm.controls?.emailOrUsername?.errors.required">Email or Username is required.</div>
         </div>
       </div>
 
