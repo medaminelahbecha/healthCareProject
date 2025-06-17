@@ -1,0 +1,30 @@
+<app-header></app-header>
+
+<main class="login-container">
+  <section class="login-form-section">
+    <h2>Welcome back</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="emailOrUsername">Email or Username</label>
+        <input type="text" id="emailOrUsername" formControlName="emailOrUsername" placeholder="Enter your email or username">
+        <div *ngIf="submitted && f.emailOrUsername.errors" class="error-message">
+          <div *ngIf="f.emailOrUsername.errors.required">Email or Username is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" formControlName="password" placeholder="Enter your password">
+        <div *ngIf="submitted && f.password.errors" class="error-message">
+          <div *ngIf="f.password.errors.required">Password is required.</div>
+        </div>
+      </div>
+
+      <div class="form-options">
+        <a href="#" class="forgot-password">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="login-button">Log In</button>
+    </form>
+  </section>
+</main>
