@@ -1,0 +1,228 @@
+// Global component styling
+:host {
+  display: block; // Ensures the component takes up block-level space
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal; // Medium is often 500, but normal (400) is widely compatible
+  background-color: #f4f7f6; // Light background for the page area outside the form
+  min-height: 100vh; // Ensure it covers the full viewport height
+}
+
+header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px; // Increased padding
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #e0e0e0; // Subtle border
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.6em; // Slightly adjusted logo size
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center; // Align items vertically
+
+      li {
+        margin-right: 25px; // Increased spacing
+
+        a {
+          text-decoration: none;
+          color: #333;
+          font-size: 1em;
+
+          &:hover {
+            color: #007bff;
+          }
+        }
+      }
+    }
+
+    .signup-button {
+      background-color: #d3d3d3;
+      border: none;
+      padding: 0; // Reset padding, will be controlled by height and line-height
+      height: 44px;
+      line-height: 44px; // Vertically center text
+      padding-left: 20px; // Horizontal padding
+      padding-right: 20px; // Horizontal padding
+      border-radius: 8px; // Consistent border radius
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 500; // Medium weight for button text
+
+      &:hover {
+        background-color: #bfbfbf;
+      }
+    }
+  }
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; // Align to top, padding will handle spacing
+  padding: 30px 15px; // Responsive padding for the container
+  margin-top: 30px; // Spacing between header and login form container
+}
+
+// Styles for the login form section
+.login-form-section {
+  background-color: #ffffff; // White background for the form
+  padding: 30px;             // Internal padding for the form section
+  border-radius: 8px;        // Rounded corners for the form card
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  width: 100%;
+  max-width: 420px; // Slightly increased max-width for better spacing
+
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1.8em; // Adjusted title size
+    font-weight: 500; // Medium weight
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    .form-group {
+      margin-bottom: 20px; // Keep space even if error message isn't shown yet
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500; // Medium weight
+        color: #555;
+        font-size: 0.95em;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        height: 44px; // Ensure consistent height
+        padding: 0 12px; // Horizontal padding, vertical handled by height
+        border: 1px solid #ccc;
+        border-radius: 8px; // Consistent border radius
+        box-sizing: border-box;
+        font-size: 1em;
+
+        &:focus {
+          outline: none;
+          border-color: #a0a0a0;
+          box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25); // Focus ring
+        }
+      }
+
+      .error-message {
+        color: #dc3545; // Red color for errors
+        font-size: 0.85em; // Smaller font size for error messages
+        margin-top: 6px;   // Space between input and error message
+        // height: 1.2em; // Reserve space to prevent layout shifts, adjust as needed
+      }
+    }
+
+    .form-options {
+      margin-bottom: 25px; // Increased spacing
+      text-align: right;
+
+      .forgot-password {
+        color: #007bff;
+        text-decoration: none;
+        font-size: 0.9em;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .login-button {
+      background-color: #c7e0f6;
+      color: #2c3e50;
+      border: none;
+      height: 44px; // Ensure consistent height
+      padding: 0 15px; // Horizontal padding, vertical handled by height
+      border-radius: 8px; // Consistent border radius
+      cursor: pointer;
+      font-size: 1.1em; // Slightly larger button text
+      font-weight: 500; // Medium weight
+      width: 100%;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #b0d4f5;
+      }
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+
+    .logo {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start; // Align items to the start
+
+      li {
+        margin-right: 0;
+        margin-bottom: 10px; // Add bottom margin for stacked items
+        width: 100%; // Make li take full width for easier tapping
+
+        a {
+          display: block; // Make link take full width of li
+          padding: 8px 0; // Add some padding for tap targets
+        }
+      }
+    }
+
+    .signup-button {
+      width: 100%; // Make button full width on smaller screens
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+
+  .login-container {
+    padding: 20px 10px; // Adjust padding for smaller screens
+    margin-top: 20px;
+  }
+
+  .login-form-section {
+    padding: 20px; // Reduce padding for smaller screens
+    h2 {
+      font-size: 1.6em;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-section {
+    max-width: 100%; // Allow form to take full width available
+    box-shadow: none; // Optional: remove shadow on very small screens
+    border-radius: 0; // Optional: remove border radius if it takes full screen width
+  }
+
+  header nav {
+    padding: 10px;
+  }
+
+  .form-group .error-message {
+    font-size: 0.8em; // Slightly smaller on very small screens if needed
+  }
+}
