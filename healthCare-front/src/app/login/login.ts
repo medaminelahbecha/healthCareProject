@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms'; // Added ReactiveFormsModule
+import { FormGroup, FormControl, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms'; // Added ReactiveFormsModule
 import { CommonModule } from '@angular/common'; // Import CommonModule for *ngIf
 
 @Component({
@@ -13,11 +13,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
 
-  constructor() {
-    this.loginForm = new FormGroup({
-      emailOrUsername: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required])
-    });
+  constructor(private fb: FormBuilder) {
+     this.loginForm = this.fb.group({
+    emailOrUsername: ['', Validators.required],
+    password: ['', Validators.required]
+  });
   }
 
   ngOnInit(): void {
