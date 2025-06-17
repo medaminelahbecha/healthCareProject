@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  margin: 0; // Remove default browser margin
+  font-family: Arial, Helvetica, sans-serif; // Default font for the application
+  background-color: #f8f9fa; // A light gray background for the body
+  color: #333; // Default text color
+}
+
+// Optional: Box-sizing reset for easier layout management
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}

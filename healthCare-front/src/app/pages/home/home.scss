@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px); // Approximate remaining height after a typical header (adjust as needed)
+                                 // This ensures the container tries to fill vertical space for centering.
+  text-align: center;
+  padding: 20px; // General padding
+  // margin-top: 30px; // Alternative: If min-height is not used, margin-top provides space from header.
+                       // With min-height for vertical centering, ensure header doesn't overlap.
+                       // The app-header is part of the document flow, so this might not be strictly needed if
+                       // home-container is the first element after app-header in the template.
+                       // However, explicit margin can be safer.
+                       // For now, relying on app-header being in flow.
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2em;
+  color: #555;
+}
