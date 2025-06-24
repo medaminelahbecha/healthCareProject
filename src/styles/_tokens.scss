@@ -1,0 +1,49 @@
+// Design Tokens
+
+// Brand Colors
+:root {
+  --cc-primary: #4A90E2; // main blue
+  --cc-primary-hover: #357AB8;
+  --cc-neutral-100: #FFFFFF;
+  --cc-neutral-900: #0F172A;
+  --cc-error: #E74C3C;
+}
+
+// Font Family
+$font-family-base: Inter, sans-serif;
+
+// Font Sizes (rem)
+$font-sizes: (
+  "xs": 0.75rem,
+  "sm": 0.875rem,
+  "base": 1rem,
+  "lg": 1.25rem,
+  "xl": 1.5rem,
+  "xxl": 2.25rem
+);
+
+// Radius Scale (px)
+$radius-scale: (
+  "sm": 4px,
+  "md": 8px,
+  "lg": 12px
+);
+
+// Spacing Scale (px)
+$spacing-scale: (
+  0: 0px,
+  1: 4px,
+  2: 8px,
+  3: 12px,
+  4: 16px,
+  5: 20px,
+  6: 24px,
+  7: 32px
+);
+
+// Breakpoints (px)
+$breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px
+);
