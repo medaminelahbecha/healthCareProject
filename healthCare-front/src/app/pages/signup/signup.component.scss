@@ -1,0 +1,161 @@
+:host {
+  display: block; // Ensures the component takes up block-level space
+  background-color: #ffffff; // White background for the entire page
+  min-height: 100vh; // Ensure it takes at least the full viewport height
+}
+
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; // Some padding around the content, especially on smaller screens
+  box-sizing: border-box; // Include padding and border in the element's total width and height
+}
+
+.signup-form-container {
+  width: 100%;
+  max-width: 400px; // Fixed max width for the form
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center form elements like title and button if they were not full width
+  padding: 20px;      // Padding inside the form container (optional)
+  box-sizing: border-box;
+}
+
+.form-title {
+  font-weight: bold;
+  font-size: 1.8em; // Prominent title
+  color: #333;
+  margin-bottom: 30px; // Space below the title
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px; // Spacing between form groups (inputs)
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 15px; // Padding inside input fields
+    border: 1px solid #ccc; // Light gray border
+    border-radius: 8px; // Rounded corners
+    box-sizing: border-box; // Ensures padding doesn't add to width
+    font-size: 1em;
+
+    &:focus {
+      border-color: #007bff; // Highlight focus
+      outline: none;
+    }
+  }
+}
+
+.error-message {
+  color: #dc3545; // Bootstrap's danger color
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+
+.signup-button {
+  width: 100%;
+  padding: 0; // Reset padding if any from global styles
+  height: 44px;
+  line-height: 44px; // Vertically center text by matching height
+  background-color: #c7e0f6; // Light blue background
+  color: #212529; // Dark text (similar to Bootstrap's default dark)
+  font-weight: bold;
+  border: none;
+  border-radius: 8px; // Rounded corners
+  cursor: pointer;
+  font-size: 1.1em;
+  margin-top: 10px; // Space above the button (adjusts for last form-group margin)
+  margin-bottom: 24px; // Space below the button
+
+  &:hover {
+    background-color: #b0d4f5; // Slightly darker on hover
+  }
+
+  &:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+  }
+}
+
+.footer-link {
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+  margin-top: 20px; // Space above the footer link
+
+  a {
+    color: #007bff; // Standard link blue
+    text-decoration: none;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .signup-form-container {
+    padding: 15px; // Reduce padding on smaller screens
+  }
+
+  .form-title {
+    font-size: 1.6em;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 10px; // Further reduce padding on very small screens
+  }
+
+  .signup-form-container {
+    max-width: 100%; // Allow form to use more width on very small screens
+    padding: 10px;
+  }
+
+  .form-title {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 16px; // Slightly reduce spacing
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      padding: 10px 12px; // Adjust padding for smaller inputs
+    }
+  }
+
+  .signup-button {
+    height: 40px;
+    line-height: 40px;
+    font-size: 1em;
+  }
+
+  .footer-link {
+    font-size: 0.85em;
+  }
+}

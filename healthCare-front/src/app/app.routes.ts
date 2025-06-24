@@ -1,10 +1,14 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login';
 import { HomeComponent } from './pages/home/home'; // 1. Import HomeComponent
+import { SignupComponent } from './pages/signup/signup.component';
 
 export const routes: Routes = [
   // 4. Login route (verified as correct)
   { path: 'login', component: LoginComponent },
+
+  // New Signup route
+  { path: 'signup', component: SignupComponent },
 
   // 3. Define Home Route
   { path: 'home', component: HomeComponent },
