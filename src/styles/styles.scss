@@ -1,0 +1,28 @@
+// Main Stylesheet - Import all SCSS partials
+
+// 1. Design Tokens (Variables)
+// Contains CSS custom properties for colors, and SCSS variables for typography, spacing, etc.
+// These variables are used across all other SCSS files.
+@import 'tokens';
+
+// 2. Base Reset
+// A minimal CSS reset to normalize browser default styles and apply global settings.
+// Includes box-sizing, default font, body background/color.
+@import 'reset';
+
+// 3. Core Component Styles
+// Defines styles for reusable UI components like buttons, forms, cards, etc.
+// These are class-based and can be applied to any HTML element.
+@import 'components';
+
+// 4. Utility Classes
+// Helper classes for common styling patterns like spacing, flexbox, text alignment, etc.
+// These are designed to be chained and used for fine-grained control over layout and appearance.
+@import 'utilities';
+
+// Note: The order of imports is important.
+// Tokens should come first as other files depend on them.
+// Reset should come before component and utility styles to ensure defaults are properly overridden.
+// Components and Utilities can be ordered based on preference or dependency, though typically utilities might
+// be used within components, so having them available (though not strictly necessary for SCSS variables/mixins)
+// or for overriding purposes can be considered. For this setup, specific overrides are not the primary concern.

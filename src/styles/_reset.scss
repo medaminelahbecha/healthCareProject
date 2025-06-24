@@ -1,0 +1,69 @@
+// Base Styles and CSS Reset
+
+// Apply border-box sizing to all elements for more intuitive box model calculations.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Set default body styles.
+body {
+  font-family: $font-family-base;
+  color: var(--cc-neutral-900);
+  background-color: var(--cc-neutral-100);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased; // Improve font rendering on WebKit browsers.
+  -moz-osx-font-smoothing: grayscale; // Improve font rendering on Firefox.
+}
+
+// Remove default list styles.
+ul,
+ol {
+  list-style: none;
+}
+
+// Remove default anchor text decoration and inherit color.
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Ensure images and videos are responsive by default.
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Remove default button styling.
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+// Address inconsistent `text-transform` inheritance for `button` and `select`.
+button,
+select {
+  text-transform: none;
+}
+
+// Correct the inability to style clickable types in iOS and Safari.
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
