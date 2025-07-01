@@ -28,8 +28,9 @@
     }
 
     &:active {
-      background-color: darken(var(--cc-primary-hover), 5%); // Slightly darker on active
-      border-color: darken(var(--cc-primary-hover), 5%);
+      // --cc-primary-hover is #357AB8
+      background-color: darken(#357AB8, 5%); // Slightly darker on active
+      border-color: darken(#357AB8, 5%);
     }
 
     &:disabled,
