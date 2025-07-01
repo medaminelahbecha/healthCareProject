@@ -3,22 +3,22 @@
 // 1. Design Tokens (Variables)
 // Contains CSS custom properties for colors, and SCSS variables for typography, spacing, etc.
 // These variables are used across all other SCSS files.
-@import 'tokens';
+@use 'tokens' as *; // Make all variables from tokens globally available
 
 // 2. Base Reset
 // A minimal CSS reset to normalize browser default styles and apply global settings.
 // Includes box-sizing, default font, body background/color.
-@import 'reset';
+@use 'reset';
 
 // 3. Core Component Styles
 // Defines styles for reusable UI components like buttons, forms, cards, etc.
 // These are class-based and can be applied to any HTML element.
-@import 'components';
+@use 'components';
 
 // 4. Utility Classes
 // Helper classes for common styling patterns like spacing, flexbox, text alignment, etc.
 // These are designed to be chained and used for fine-grained control over layout and appearance.
-@import 'utilities';
+@use 'utilities';
 
 // Note: The order of imports is important.
 // Tokens should come first as other files depend on them.
