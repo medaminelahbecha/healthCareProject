@@ -1,16 +1,19 @@
 // Component Styles
 
 // Buttons
+@use "sass:map";
+@use "sass:color";
+
 .btn {
   display: inline-flex; // Use inline-flex for alignment of icon and text if needed
   align-items: center;
   justify-content: center;
-  padding: map-get($spacing-scale, 2) map-get($spacing-scale, 4); // p-2 p-4 equivalent
-  font-size: map-get($font-sizes, "base");
+  padding: map.get($spacing-scale, 2) map.get($spacing-scale, 4); // p-2 p-4 equivalent
+  font-size: map.get($font-sizes, "base");
   font-weight: 500;
   text-align: center;
   text-decoration: none;
-  border-radius: map-get($radius-scale, "md");
+  border-radius: map.get($radius-scale, "md");
   cursor: pointer;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   user-select: none; // Prevent text selection on click
@@ -29,14 +32,15 @@
 
     &:active {
       // --cc-primary-hover is #357AB8
-      background-color: darken(#357AB8, 5%); // Slightly darker on active
-      border-color: darken(#357AB8, 5%);
+      background-color: color.adjust(#357AB8, $lightness: -5%); // Slightly darker on active
+      border-color: color.adjust(#357AB8, $lightness: -5%);
     }
 
     &:disabled,
     &[disabled] {
-      background-color: lighten(var(--cc-primary), 20%);
-      border-color: lighten(var(--cc-primary), 20%);
+      // --cc-primary is #4A90E2
+      background-color: color.adjust(#4A90E2, $lightness: 20%);
+      border-color: color.adjust(#4A90E2, $lightness: 20%);
       color: var(--cc-neutral-100);
       cursor: not-allowed;
       opacity: 0.65; // Standard disabled opacity
@@ -45,25 +49,26 @@
 
   // Secondary Button (example: grey button)
   &--secondary {
-    background-color: lighten(var(--cc-neutral-900), 70%); // A light grey
+    // --cc-neutral-900 is #0F172A
+    background-color: color.adjust(#0F172A, $lightness: 70%); // A light grey
     color: var(--cc-neutral-900);
-    border-color: lighten(var(--cc-neutral-900), 70%);
+    border-color: color.adjust(#0F172A, $lightness: 70%);
 
     &:hover {
-      background-color: lighten(var(--cc-neutral-900), 60%);
-      border-color: lighten(var(--cc-neutral-900), 60%);
+      background-color: color.adjust(#0F172A, $lightness: 60%);
+      border-color: color.adjust(#0F172A, $lightness: 60%);
     }
 
     &:active {
-      background-color: lighten(var(--cc-neutral-900), 50%);
-      border-color: lighten(var(--cc-neutral-900), 50%);
+      background-color: color.adjust(#0F172A, $lightness: 50%);
+      border-color: color.adjust(#0F172A, $lightness: 50%);
     }
 
      &:disabled,
     &[disabled] {
-      background-color: lighten(var(--cc-neutral-900), 80%);
-      border-color: lighten(var(--cc-neutral-900), 80%);
-      color: lighten(var(--cc-neutral-900), 40%);
+      background-color: color.adjust(#0F172A, $lightness: 80%);
+      border-color: color.adjust(#0F172A, $lightness: 80%);
+      color: color.adjust(#0F172A, $lightness: 40%);
       cursor: not-allowed;
       opacity: 0.65;
     }
@@ -81,15 +86,16 @@
     }
 
     &:active {
-      background-color: var(--cc-primary-hover);
-      border-color: var(--cc-primary-hover);
+      background-color: var(--cc-primary-hover); // This is a CSS var, color.adjust won't work directly if it were needed
+      border-color: var(--cc-primary-hover);   // This is a CSS var, color.adjust won't work directly if it were needed
       color: var(--cc-neutral-100);
     }
 
     &:disabled,
     &[disabled] {
-      color: lighten(var(--cc-primary), 20%);
-      border-color: lighten(var(--cc-primary), 20%);
+      // --cc-primary is #4A90E2
+      color: color.adjust(#4A90E2, $lightness: 20%);
+      border-color: color.adjust(#4A90E2, $lightness: 20%);
       background-color: transparent;
       cursor: not-allowed;
       opacity: 0.65;
@@ -106,23 +112,24 @@
 // Forms
 .label {
   display: block;
-  font-size: map-get($font-sizes, "sm");
+  font-size: map.get($font-sizes, "sm");
   font-weight: 500;
-  margin-bottom: map-get($spacing-scale, 1); // mb-1
+  margin-bottom: map.get($spacing-scale, 1); // mb-1
   color: var(--cc-neutral-900);
 }
 
 .input {
   display: block;
   width: 100%;
-  padding: map-get($spacing-scale, 2) map-get($spacing-scale, 3); // p-2 p-3
-  font-size: map-get($font-sizes, "base");
+  padding: map.get($spacing-scale, 2) map.get($spacing-scale, 3); // p-2 p-3
+  font-size: map.get($font-sizes, "base");
   line-height: 1.5;
   color: var(--cc-neutral-900);
   background-color: var(--cc-neutral-100);
   background-clip: padding-box;
-  border: 1px solid lighten(var(--cc-neutral-900), 70%); // Light grey border
-  border-radius: map-get($radius-scale, "sm");
+  // --cc-neutral-900 is #0F172A
+  border: 1px solid color.adjust(#0F172A, $lightness: 70%); // Light grey border
+  border-radius: map.get($radius-scale, "sm");
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
   &:focus {
@@ -133,14 +140,16 @@
 
   // Placeholder styling
   &::placeholder {
-    color: lighten(var(--cc-neutral-900), 50%);
+    // --cc-neutral-900 is #0F172A
+    color: color.adjust(#0F172A, $lightness: 50%);
     opacity: 1; // Firefox fixes
   }
 
   // Disabled state
   &:disabled,
   &[readonly] { // Treat readonly same as disabled for styling
-    background-color: lighten(var(--cc-neutral-900), 85%); // Lighter grey
+    // --cc-neutral-900 is #0F172A
+    background-color: color.adjust(#0F172A, $lightness: 85%); // Lighter grey
     opacity: 0.7;
     cursor: not-allowed;
   }
@@ -159,16 +168,17 @@
 // Helper and Error Text for Forms
 .helper-text {
   display: block;
-  font-size: map-get($font-sizes, "xs");
-  color: lighten(var(--cc-neutral-900), 40%); // Muted text color
-  margin-top: map-get($spacing-scale, 1); // mt-1
+  font-size: map.get($font-sizes, "xs");
+  // --cc-neutral-900 is #0F172A
+  color: color.adjust(#0F172A, $lightness: 40%); // Muted text color
+  margin-top: map.get($spacing-scale, 1); // mt-1
 }
 
 .error-text {
   display: block;
-  font-size: map-get($font-sizes, "xs");
+  font-size: map.get($font-sizes, "xs");
   color: var(--cc-error);
-  margin-top: map-get($spacing-scale, 1); // mt-1
+  margin-top: map.get($spacing-scale, 1); // mt-1
 }
 
 // Links
@@ -191,17 +201,19 @@
 // Card / Panel
 .card {
   background-color: var(--cc-neutral-100);
-  border: 1px solid lighten(var(--cc-neutral-900), 80%); // Very light border
-  border-radius: map-get($radius-scale, "lg");
-  padding: map-get($spacing-scale, 4); // p-4
+  // --cc-neutral-900 is #0F172A
+  border: 1px solid color.adjust(#0F172A, $lightness: 80%); // Very light border
+  border-radius: map.get($radius-scale, "lg");
+  padding: map.get($spacing-scale, 4); // p-4
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); // Tailwind-like shadow
 
   // Example: Card Header and Body
   &__header {
-    padding-bottom: map-get($spacing-scale, 3); // pb-3
-    margin-bottom: map-get($spacing-scale, 3); // mb-3
-    border-bottom: 1px solid lighten(var(--cc-neutral-900), 80%);
-    font-size: map-get($font-sizes, "lg");
+    padding-bottom: map.get($spacing-scale, 3); // pb-3
+    margin-bottom: map.get($spacing-scale, 3); // mb-3
+    // --cc-neutral-900 is #0F172A
+    border-bottom: 1px solid color.adjust(#0F172A, $lightness: 80%);
+    font-size: map.get($font-sizes, "lg");
     font-weight: 500;
   }
 
@@ -210,8 +222,9 @@
   }
 
   &__footer {
-    padding-top: map-get($spacing-scale, 3); // pt-3
-    margin-top: map-get($spacing-scale, 3); // mt-3
-    border-top: 1px solid lighten(var(--cc-neutral-900), 80%);
+    padding-top: map.get($spacing-scale, 3); // pt-3
+    margin-top: map.get($spacing-scale, 3); // mt-3
+    // --cc-neutral-900 is #0F172A
+    border-top: 1px solid color.adjust(#0F172A, $lightness: 80%);
   }
 }
