@@ -5,7 +5,7 @@ import { HeaderComponent } from './shared/header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent], // Removed HomeComponent
+  imports: [RouterOutlet, HeaderComponent, HomeComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
